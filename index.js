@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 app.use(cors());
 app.use(bodyParser.json());
 
+const users = ["Messi", "Suarez", "Neymar", "Aguaero", "Di Maria"];
+
 // get
 
 app.get("/", (req, res) => {
@@ -25,7 +27,9 @@ app.get("/users/:id", (req, res) => {
 // post
 
 app.post("/addUser", (req, res) => {
-  console.log(req.body);
+  const user = req.body;
+  user.id = 55;
+  res.send(user);
 });
 
 app.listen(4000, () => console.log("Listening to port 4000"));
